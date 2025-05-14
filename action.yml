@@ -1,0 +1,16 @@
+name: 'Subdomain Enumeration'
+description: 'Run subenum scanner'
+inputs:
+  domain:
+    description: 'Target domain'
+    required: true
+  wordlist:
+    description: 'Wordlist file'
+    required: false
+    default: 'wordlists/common.txt'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.domain }}
+    - ${{ inputs.wordlist }}
